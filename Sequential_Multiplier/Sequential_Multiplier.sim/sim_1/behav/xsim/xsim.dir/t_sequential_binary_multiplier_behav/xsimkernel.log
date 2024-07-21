@@ -1,0 +1,4 @@
+Running: xsim.dir/t_sequential_binary_multiplier_behav/xsimk.exe -simmode gui -wdb t_sequential_binary_multiplier_behav.wdb -simrunnum 0 -socket 58074
+Design successfully loaded
+Design Loading Memory Usage: 7880 KB (Peak: 7880 KB)
+Design Loading CPU Usage: 15 ms

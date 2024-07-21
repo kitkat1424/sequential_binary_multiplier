@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Sequential_Multiplier.srcs/sources_1/new/sequential_binary_multiplier.v" \
+"../../../../Sequential_Multiplier.srcs/sim_1/new/t_sequential_binary_multiplier.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
