@@ -44,7 +44,8 @@ wire zero = (P==0);
 wire ready = (state == s_idle);
 
 always @(posedge clock, negedge reset_b) begin
-    if (~reset_b) state <= s_idle; else state <= next_state;
+    if (~reset_b) state <= s_idle; 
+    else state <= next_state;
 end
 
 always @(state, start, Q[0], zero) begin
@@ -54,10 +55,20 @@ always @(state, start, Q[0], zero) begin
     add_regs = 0;
     shift_regs = 0;
     case (state)
-         s_idle: begin if (start) next_state = s_add; load_regs = 1; end
-         s_add: begin next_state = s_shift; decr_p = 1; if (Q[0]) add_regs = 1; end
-         s_shift: begin shift_regs = 1; if (zero) next_state = s_idle;
-         else next_state = s_add; end
+         s_idle: begin 
+             if (start) next_state = s_add; 
+             load_regs = 1; 
+         end
+         s_add: begin 
+             next_state = s_shift; 
+             decr_p = 1; 
+             if (Q[0]) add_regs = 1; 
+         end
+         s_shift: begin 
+             shift_regs = 1; 
+             if (zero) next_state = s_idle;
+             else next_state = s_add; 
+         end
          default : next_state = s_idle;
      endcase
 end
